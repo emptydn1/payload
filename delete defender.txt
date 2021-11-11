@@ -1,5 +1,5 @@
 # Disable Windows Defender
-
+https://bidouillesecurity.com/disable-windows-defender-in-powershell/
 <#
                            _               _ 
  __      ____ _ _ __ _ __ (_)_ __   __ _  | |
